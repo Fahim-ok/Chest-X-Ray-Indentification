@@ -73,7 +73,7 @@ def index():
 if __name__ == '__main__':
     app.run(debug=True)
 
-
+#### `gradio_app.py`
 Gradio Application
 The Gradio application provides an interactive interface for users to upload chest X-ray images and get predictions.
 
