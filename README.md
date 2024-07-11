@@ -1,3 +1,4 @@
+
 # Chest X-ray Classification: COVID-19, Viral Pneumonia, and Normal
 
 This project classifies chest X-rays into three categories: Normal, COVID-19, and Viral Pneumonia using a deep learning model. The deployment is done through two applications: a Flask web application and a Gradio interface.
@@ -12,7 +13,7 @@ This project classifies chest X-rays into three categories: Normal, COVID-19, an
 - [Installation](#installation)
 - [Usage](#usage)
 - [Contributing](#contributing)
-
+- [License](#license)
 
 ## Project Overview
 This project aims to classify chest X-ray images into three categories: Normal, COVID-19, and Viral Pneumonia. The model is trained using PyTorch and deployed via Flask and Gradio for easy accessibility.
@@ -29,7 +30,7 @@ The trained model is deployed using two different approaches: Flask and Gradio.
 ### Flask Application
 The Flask application provides a web interface for users to upload chest X-ray images and get predictions.
 
-#### `flask_app.py` and gradio.app.py
+#### `flask_app.py`
 ```python
 from flask import Flask, request, render_template
 import torch
@@ -72,11 +73,30 @@ def index():
 
 if __name__ == '__main__':
     app.run(debug=True)
+```
 
+#### `templates/index.html`
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chest X-ray Classification</title>
+</head>
+<body>
+    <h1>Upload a Chest X-ray Image</h1>
+    <form action="/" method="post" enctype="multipart/form-data">
+        <input type="file" name="file">
+        <input type="submit" value="Upload">
+    </form>
+</body>
+</html>
+```
 
-
+### Gradio Application
+The Gradio application provides an interactive interface for users to upload chest X-ray images and get predictions.
 
 #### `gradio_app.py`
+```python
 import gradio as gr
 import torch
 from torchvision import transforms
@@ -108,41 +128,53 @@ iface = gr.Interface(
 
 if __name__ == '__main__':
     iface.launch()
+```
 
-
-Installation
+## Installation
 Follow these steps to set up the project locally:
 
-Clone the repository:
-git clone https://github.com/yourusername/chest-xray-classification.git
-cd chest-xray-classification
-Set up a virtual environment:
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/yourusername/chest-xray-classification.git
+    cd chest-xray-classification
+    ```
 
+2. Set up a virtual environment:
+    ```bash
+    python -m venv venv
+    source venv/bin/activate  # On Windows use `venv\Scriptsctivate`
+    ```
 
-python -m venv venv
-source venv/bin/activate  # On Windows use `venv\Scripts\activate`
-Install the required packages:
+3. Install the required packages:
+    ```bash
+    pip install -r requirements.txt
+    ```
 
+4. Download the pre-trained model and place it in the project directory:
+    ```bash
+    # Assuming the model file is named 'model.pth'
+    ```
 
-pip install -r requirements.txt
-Download the pre-trained model and place it in the project directory:
+## Usage
 
+### Running the Flask Application
+1. Navigate to the project directory and run the Flask application:
+    ```bash
+    python flask_app.py
+    ```
 
-# Assuming the model file is named 'model.pth'
-Usage
-Running the Flask Application
-Navigate to the project directory and run the Flask application:
+2. Open a web browser and go to `http://127.0.0.1:5000/` to access the application.
 
+### Running the Gradio Application
+1. Navigate to the project directory and run the Gradio application:
+    ```bash
+    python gradio_app.py
+    ```
 
-python flask_app.py
-Open a web browser and go to http://127.0.0.1:5000/ to access the application.
+2. Follow the link provided in the terminal to access the Gradio interface.
 
-Running the Gradio Application
-Navigate to the project directory and run the Gradio application:
-
-
-python gradio_app.py
-Follow the link provided in the terminal to access the Gradio interface.
-
-Contributing
+## Contributing
 Contributions are welcome! Please fork the repository and submit a pull request with your changes. Ensure that your code adheres to the existing style and includes appropriate tests.
+
+## License
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
