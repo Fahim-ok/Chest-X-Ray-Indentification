@@ -12,7 +12,7 @@ This project classifies chest X-rays into three categories: Normal, COVID-19, an
 - [Installation](#installation)
 - [Usage](#usage)
 - [Contributing](#contributing)
-- [License](#license)
+
 
 ## Project Overview
 This project aims to classify chest X-ray images into three categories: Normal, COVID-19, and Viral Pneumonia. The model is trained using PyTorch and deployed via Flask and Gradio for easy accessibility.
@@ -29,7 +29,7 @@ The trained model is deployed using two different approaches: Flask and Gradio.
 ### Flask Application
 The Flask application provides a web interface for users to upload chest X-ray images and get predictions.
 
-#### `flask_app.py`
+#### `flask_app.py` and gradio.app.py
 ```python
 from flask import Flask, request, render_template
 import torch
