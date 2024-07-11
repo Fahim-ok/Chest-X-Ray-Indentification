@@ -72,3 +72,49 @@ def index():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+
+Installation
+Follow these steps to set up the project locally:
+
+Clone the repository:
+
+bash
+Copy code
+git clone https://github.com/yourusername/chest-xray-classification.git
+cd chest-xray-classification
+Set up a virtual environment:
+
+bash
+Copy code
+python -m venv venv
+source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+Install the required packages:
+
+bash
+Copy code
+pip install -r requirements.txt
+Download the pre-trained model and place it in the project directory:
+
+bash
+Copy code
+# Assuming the model file is named 'model.pth'
+Usage
+Running the Flask Application
+Navigate to the project directory and run the Flask application:
+
+bash
+Copy code
+python flask_app.py
+Open a web browser and go to http://127.0.0.1:5000/ to access the application.
+
+Running the Gradio Application
+Navigate to the project directory and run the Gradio application:
+
+bash
+Copy code
+python gradio_app.py
+Follow the link provided in the terminal to access the Gradio interface.
+
+Contributing
+Contributions are welcome! Please fork the repository and submit a pull request with your changes. Ensure that your code adheres to the existing style and includes appropriate tests.
